@@ -1,0 +1,17 @@
+name: FilaCero - Validacion .NET 11
+on:
+  push:
+  pull_request:
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '11.0.x'
+      - name: Compilar dominio y API
+        run: dotnet build src/FilaCero.Api/FilaCero.Api.csproj -c Release
+      - name: Validaciones del dominio
+        run: dotnet run --project tests/FilaCero.SmokeTests/FilaCero.SmokeTests.csproj -c Release
+      # MAUI necesita Android/iOS SDK y workloads; compilar por separado en Visual Studio 2026.

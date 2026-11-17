@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FilaCero.Mobile.Pages.SettingsPage" Title="Ajustes">
+  <ScrollView>
+    <VerticalStackLayout Padding="22" Spacing="16">
+      <Label Text="PREFERENCIAS" Style="{StaticResource Eyebrow}" />
+      <Label Text="Ajustes" Style="{StaticResource BigTitle}" />
+      <Label Text="Tu aplicación se conecta automáticamente con FilaCero. No necesitas configurar nada." Style="{StaticResource SubText}" />
+
+      <Border BackgroundColor="White" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 17" Padding="20">
+        <VerticalStackLayout Spacing="13">
+          <HorizontalStackLayout Spacing="10">
+            <Border BackgroundColor="{StaticResource Mint}" StrokeThickness="0" StrokeShape="RoundRectangle 10" HeightRequest="40" WidthRequest="40">
+              <Label Text="●" TextColor="{StaticResource Teal}" FontSize="22" HorizontalOptions="Center" VerticalOptions="Center" />
+            </Border>
+            <VerticalStackLayout Spacing="3" VerticalOptions="Center">
+              <Label Text="Estado del servicio" FontAttributes="Bold" FontSize="17" />
+              <Label Text="Conexión automática" Style="{StaticResource SubText}" />
+            </VerticalStackLayout>
+          </HorizontalStackLayout>
+          <Label x:Name="HealthLabel" Text="Comprobando disponibilidad..." Style="{StaticResource SubText}" />
+          <Button x:Name="CheckButton" Text="Comprobar servicio" Style="{StaticResource OutlineButton}" Clicked="CheckServiceClicked" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="White" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 17" Padding="20">
+        <VerticalStackLayout Spacing="12">
+          <Label Text="Mis datos en este dispositivo" FontAttributes="Bold" FontSize="17" />
+          <Label x:Name="SavedPassLabel" Text="Aquí puedes consultar si tienes un pase guardado." Style="{StaticResource SubText}" />
+          <Label Text="Puedes borrar la sesión y el pase almacenados en este teléfono. Esta acción no elimina los datos del servidor." Style="{StaticResource SubText}" />
+          <Button Text="Eliminar datos de este teléfono" BackgroundColor="{StaticResource Danger}" Clicked="ClearClicked" />
+        </VerticalStackLayout>
+      </Border>
+
+      <Border BackgroundColor="{StaticResource Mint}" StrokeThickness="0" StrokeShape="RoundRectangle 16" Padding="18">
+        <VerticalStackLayout Spacing="8">
+          <Label Text="Acerca de FilaCero" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Deep}" />
+          <Label Text="Tu pase digital, registro y seguimiento de turnos en un solo lugar." TextColor="{StaticResource Deep}" FontSize="13" />
+          <Label Text="Proyecto académico. No sustituye la atención médica presencial." TextColor="{StaticResource Deep}" FontSize="12" />
+        </VerticalStackLayout>
+      </Border>
+    </VerticalStackLayout>
+  </ScrollView>
+</ContentPage>

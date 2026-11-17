@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FilaCero.Mobile.Pages.RegisterPage" Title="Registro">
+ <ScrollView>
+  <VerticalStackLayout Padding="22" Spacing="14">
+   <Label Text="PASO 01" Style="{StaticResource Eyebrow}" />
+   <Label Text="Pre-registro" Style="{StaticResource BigTitle}" />
+   <Label Text="Ingresa CURP o NSS y selecciona tu clínica. Los campos marcados con * son obligatorios." Style="{StaticResource SubText}" />
+   <Border BackgroundColor="White" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 16" Padding="18">
+    <VerticalStackLayout Spacing="11">
+     <Label Text="Nombre completo *" Style="{StaticResource FieldLabel}" />
+     <Entry x:Name="FullNameEntry" Placeholder="Paciente de Prueba" MaxLength="110" />
+     <Label Text="CURP (opcional con NSS)" Style="{StaticResource FieldLabel}" />
+     <Entry x:Name="CurpEntry" Placeholder="18 caracteres" MaxLength="18" TextTransform="Uppercase" />
+     <Label Text="NSS (opcional con CURP)" Style="{StaticResource FieldLabel}" />
+     <Entry x:Name="NssEntry" Placeholder="11 dígitos" MaxLength="11" Keyboard="Numeric" />
+     <Label Text="Teléfono (opcional)" Style="{StaticResource FieldLabel}" />
+     <Entry x:Name="PhoneEntry" Placeholder="10 dígitos" MaxLength="10" Keyboard="Telephone" />
+     <Label Text="Clínica *" Style="{StaticResource FieldLabel}" />
+     <Picker x:Name="ClinicPicker" Title="Elige tu clínica" BackgroundColor="#F7FAFA" HeightRequest="50" />
+     <Label Text="Documento (opcional; PDF/JPG/PNG, máximo 1 MB)" Style="{StaticResource FieldLabel}" />
+     <Button Text="Seleccionar documento" Style="{StaticResource OutlineButton}" Clicked="ChooseDocument" />
+     <Label x:Name="DocumentLabel" Text="Ningún documento seleccionado" Style="{StaticResource SubText}" />
+     <Button x:Name="RegisterButton" Text="Guardar pre-registro" Clicked="RegisterClicked" />
+    </VerticalStackLayout>
+   </Border>
+   <Label Text="Datos ficticios únicamente. En un uso real se requieren políticas de privacidad y acceso a expedientes." Style="{StaticResource WarnText}" />
+  </VerticalStackLayout>
+ </ScrollView>
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FilaCero.Mobile.Pages.HomePage" Title="Inicio">
+ <ScrollView>
+  <VerticalStackLayout Padding="22" Spacing="18">
+   <Label Text="TU CLÍNICA, SIN FILAS" Style="{StaticResource Eyebrow}" CharacterSpacing="1.5" />
+   <Label Text="Bienvenido a FilaCero" Style="{StaticResource BigTitle}" />
+   <Label Text="Regístrate, responde el cuestionario y lleva tu turno digital en el teléfono." Style="{StaticResource SubText}" />
+   <Border StrokeThickness="0" StrokeShape="RoundRectangle 20" Padding="22">
+    <Border.Background>
+     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+      <GradientStop Color="#097F78" Offset="0.0" />
+      <GradientStop Color="#008C81" Offset="0.58" />
+      <GradientStop Color="#23AAA0" Offset="1.0" />
+     </LinearGradientBrush>
+    </Border.Background>
+    <VerticalStackLayout Spacing="11">
+     <Label Text="SERVICIO DIGITAL" TextColor="#BDF5DC" FontAttributes="Bold" FontSize="11" />
+     <Label x:Name="MainTicketLabel" Text="Tu atención empieza aquí" TextColor="White" FontSize="25" FontAttributes="Bold" />
+     <Label x:Name="HeroStatus" Text="Evita filas de ventanilla y consulta tus avances." TextColor="#D5F9F0" FontSize="13" />
+     <Label x:Name="ConnectionLabel" Text="● DEMOSTRACIÓN" TextColor="#BDF9E2" FontSize="12" FontAttributes="Bold" />
+    </VerticalStackLayout>
+   </Border>
+   <Border BackgroundColor="White" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 16" Padding="18">
+    <VerticalStackLayout Spacing="14">
+     <Label Text="Tu proceso de atención" FontAttributes="Bold" FontSize="19" />
+     <Label x:Name="Step1" Text="1. Pre-registro: pendiente" />
+     <Label x:Name="Step2" Text="2. Cuestionario: pendiente" />
+     <Label x:Name="Step3" Text="3. Pase QR: pendiente" />
+     <Button Text="Comenzar el proceso" Clicked="OpenRegister" />
+     <Button Text="Abrir mi turno digital" Style="{StaticResource OutlineButton}" Clicked="OpenTicket" />
+    </VerticalStackLayout>
+   </Border>
+   <Border BackgroundColor="#FFF9EC" Stroke="#F2DEBA" StrokeShape="RoundRectangle 12" Padding="15">
+    <Label Text="Solo demostración académica. No introduzcas datos personales reales. El triaje NO sustituye una valoración médica." Style="{StaticResource WarnText}" />
+   </Border>
+   <Label x:Name="NoticeLabel" Text="Completa tu registro para comenzar." Style="{StaticResource SubText}" />
+  </VerticalStackLayout>
+ </ScrollView>
+</ContentPage>
