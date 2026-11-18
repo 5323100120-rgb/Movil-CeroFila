@@ -2,26 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FilaCero.Mobile.Pages.TicketPage" Title="Mi turno">
- <ScrollView>
-  <VerticalStackLayout Padding="22" Spacing="16">
-   <Label Text="PASE DIGITAL" Style="{StaticResource Eyebrow}" />
-   <Label Text="Mi turno" Style="{StaticResource BigTitle}" />
-   <Label Text="Presenta el código QR en ventanilla. El último pase sigue disponible en este dispositivo sin conexión." Style="{StaticResource SubText}" />
-   <Border BackgroundColor="White" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 18" Padding="21">
-    <VerticalStackLayout Spacing="11" HorizontalOptions="Fill">
-     <Label x:Name="CachedBadge" Text="Aún no tienes un pase" TextColor="{StaticResource Deep}" FontAttributes="Bold" FontSize="12" HorizontalTextAlignment="Center" />
-     <Label Text="NÚMERO DE TURNO" HorizontalTextAlignment="Center" Style="{StaticResource SubText}" />
-     <Label x:Name="CodeLabel" Text="---" FontSize="47" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-     <Image x:Name="QrImage" HeightRequest="235" WidthRequest="235" Aspect="AspectFit" HorizontalOptions="Center" IsVisible="False" />
-     <Label x:Name="StatusLabel" Text="Sin turno" FontSize="17" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-     <Label x:Name="ClinicLabel" Text="Primero completa los pasos anteriores" Style="{StaticResource SubText}" HorizontalTextAlignment="Center" />
-     <Label x:Name="RoomLabel" Text="" HorizontalTextAlignment="Center" />
-     <Label x:Name="QueueLabel" Text="" Style="{StaticResource SubText}" HorizontalTextAlignment="Center" />
-     <Button x:Name="IssueButton" Text="Generar turno QR" Clicked="IssueClicked" />
-     <Button x:Name="RefreshButton" Text="Actualizar estado" Style="{StaticResource OutlineButton}" Clicked="RefreshClicked" />
-    </VerticalStackLayout>
-   </Border>
-   <Label Text="Con modo avión podrás visualizar el QR guardado, pero no crear turnos ni recibir cambios de fila." Style="{StaticResource WarnText}" />
-  </VerticalStackLayout>
- </ScrollView>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <VerticalStackLayout Spacing="2">
+                <Label Text="PASE DIGITAL" Style="{StaticResource Eyebrow}" CharacterSpacing="1.2" />
+                <Label Text="Mi turno" Style="{StaticResource BigTitle}" />
+                <Label Text="Muestra este código QR al llegar al consultorio." Style="{StaticResource SubText}" />
+            </VerticalStackLayout>
+
+            <Border BackgroundColor="White" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 22" Padding="22">
+                <VerticalStackLayout Spacing="12" HorizontalOptions="Fill">
+                    <Border BackgroundColor="{StaticResource Mint}" StrokeThickness="0" StrokeShape="RoundRectangle 12" Padding="12,6" HorizontalOptions="Center">
+                        <Label x:Name="CachedBadge" Text="Aún no tienes un pase" TextColor="{StaticResource Deep}" FontAttributes="Bold" FontSize="11" HorizontalTextAlignment="Center" />
+                    </Border>
+
+                    <Label Text="TURNO ASIGNADO" HorizontalTextAlignment="Center" Style="{StaticResource Eyebrow}" Margin="0,4,0,0" />
+                    <Label x:Name="CodeLabel" Text="---" FontSize="48" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+
+                    <Border BackgroundColor="#F7FAFA" Stroke="{StaticResource Line}" StrokeShape="RoundRectangle 16" Padding="14" HorizontalOptions="Center">
+                        <Image x:Name="QrImage" HeightRequest="220" WidthRequest="220" Aspect="AspectFit" HorizontalOptions="Center" IsVisible="False" />
+                    </Border>
+
+                    <Label x:Name="StatusLabel" Text="Sin turno" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Teal}" HorizontalTextAlignment="Center" />
+                    <Label x:Name="ClinicLabel" Text="Completa tu registro y pre-triaje" Style="{StaticResource SubText}" HorizontalTextAlignment="Center" />
+                    <Label x:Name="RoomLabel" Text="" FontAttributes="Bold" HorizontalTextAlignment="Center" />
+                    <Label x:Name="QueueLabel" Text="" Style="{StaticResource SubText}" HorizontalTextAlignment="Center" />
+
+                    <BoxView HeightRequest="1" Color="{StaticResource Line}" Margin="0,4" />
+
+                    <Button x:Name="IssueButton" Text="Generar turno QR" Clicked="IssueClicked" />
+                    <Button x:Name="RefreshButton" Text="Actualizar estado" Style="{StaticResource OutlineButton}" Clicked="RefreshClicked" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
